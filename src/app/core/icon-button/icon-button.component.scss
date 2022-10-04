@@ -1,0 +1,71 @@
+:host.green{
+  background-color: var(--color-green);
+}
+
+:host.blue{
+  background-color: var(--color-blue);
+}
+
+:host.grey{
+  background-color: var(--bg-color);
+}
+
+:host.white{
+  background-color: #fff;
+  button{
+    color: var(--color-blue);
+    border: 1px solid #ccc;
+  }
+}
+
+:host.transparent{
+  background-color: transparent;
+  button{
+    color: #fff;
+  }
+}
+
+:host.revert_element{
+  button{
+    flex-direction: row-reverse;
+    img{
+      margin-left: 0.3rem;
+      margin-right: 0;
+    }
+  }
+}
+
+:host.rotate_element{
+  button{
+    img{
+      transform: rotate(180deg);
+    }
+  }
+}
+
+:host{
+  display: inline-block;
+}
+
+:host.filter-button{
+  &:hover{
+    background-color: var(--bg-color);
+  }
+  &:focus{
+    background-color: var(--bg-color);
+  }
+}
+
+button {
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.125rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .button-icon {
+    display: inline-block;
+    margin-right: 0.3rem;
+    width: 1.2rem;
+  }
+}

@@ -1,0 +1,11 @@
+@import "../../../assets/styles/valid-form";
+
+.pass-input{
+  position: relative;
+  cursor: pointer;
+  &__eye{
+    position: absolute;
+    right: 0.5rem;
+    top: 2.5rem;
+  }
+}

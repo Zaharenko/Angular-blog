@@ -1,0 +1,22 @@
+<div
+  *ngIf="href !== '/admin'; else adminMenu"
+  class="flex">
+  <li routerLinkActive="active">
+    <a href="#" class="mr-4 hover:underline md:mr-6">Home</a>
+  </li>
+  <li routerLinkActive="active">
+    <a routerLink="/posts" class="mr-4 hover:underline md:mr-6">Blog</a>
+  </li>
+</div>
+
+<ng-template #adminMenu>
+  <li routerLinkActive="active">
+    <a routerLink="/" class="mr-4 hover:underline md:mr-6 text-center">Home</a>
+  </li>
+  <li routerLinkActive="active">
+    <a routerLink="create" class="mr-4 hover:underline md:mr-6 text-center">Create</a>
+  </li>
+  <li routerLinkActive="active">
+    <a routerLink="dashboard" class="mr-4 hover:underline md:mr-6 text-center">Dashboard</a>
+  </li>
+</ng-template>

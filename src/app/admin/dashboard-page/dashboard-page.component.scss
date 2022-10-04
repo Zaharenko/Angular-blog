@@ -1,0 +1,42 @@
+.banner {
+  border-radius: 0.5rem;
+  background-color: #ccc;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  overflow: hidden;
+}
+.loading{
+  width: 2.5rem;
+  display: flex;
+  animation: spinnerRotate 4s linear infinite alternate;
+  transform: rotate(0deg);
+}
+
+@keyframes spinnerRotate {
+  0% {
+    transform: rotate(-60deg);
+  }
+  20% {
+    transform: rotate(-120deg);
+  }
+  40% {
+    transform: rotate(-180deg);
+  }
+  60% {
+    transform: rotate(-240deg);
+  }
+  80% {
+    transform: rotate(-300deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
