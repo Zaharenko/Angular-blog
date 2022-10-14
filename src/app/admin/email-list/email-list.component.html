@@ -1,0 +1,33 @@
+<!--<app-loading *ngIf="loading"></app-loading>-->
+
+<!--<form class="search-buttons">-->
+<!--  <div class="filter">-->
+<!--    <app-icon-button-->
+<!--      class="filter-button"-->
+<!--      title="Filter title"-->
+<!--      (click)="searchField='title'"-->
+<!--      color="blue"></app-icon-button>-->
+<!--    <input-->
+<!--      type="search"-->
+<!--      placeholder="Type to search"-->
+<!--      size="50"-->
+<!--      name="searchInput"-->
+<!--      [(ngModel)]="searchInput">-->
+<!--  </div>-->
+<!--</form>-->
+
+<aside aria-label="Related articles" class="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
+  <div class="px-4 mx-auto max-w-screen-xl">
+    <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">All emails</h2>
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4" >
+      <table>
+        <th>Email</th>
+        <th>Time</th>
+        <tr *ngFor="let e of email; let ind = index">
+          <td>{{e.email}}</td>
+          <td>{{e.time | date: 'YYYY-M-d HH-mm'}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>

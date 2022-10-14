@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MenuComponent } from "./menu/menu.component";
-import { RouterLinkActive, RouterLinkWithHref } from "@angular/router";
-import { RelatedArticlesComponent } from './related-articles/related-articles.component';
-import { SubscribeEmailComponent } from './subscribe-email/subscribe-email.component';
-import { IconButtonComponent } from './icon-button/icon-button.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {MenuComponent} from "./menu/menu.component";
+import {RouterLink, RouterLinkActive, RouterLinkWithHref} from "@angular/router";
+import {RelatedArticlesComponent} from './related-articles/related-articles.component';
+import {SubscribeEmailComponent} from './subscribe-email/subscribe-email.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
     MenuComponent,
     RelatedArticlesComponent,
     SubscribeEmailComponent,
-    IconButtonComponent
+    NotFoundComponent
   ],
   exports: [
     HeaderComponent,
@@ -25,12 +25,13 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
     MenuComponent,
     RelatedArticlesComponent,
     SubscribeEmailComponent,
-    IconButtonComponent
   ],
-    imports: [
-        CommonModule,
-        RouterLinkActive,
-        RouterLinkWithHref
-    ]
+  imports: [
+    CommonModule,
+    RouterLinkActive,
+    RouterLinkWithHref,
+    RouterLink,
+    ReactiveFormsModule
+  ]
 })
 export class CoreModule { }

@@ -1,0 +1,9 @@
+<span (click)="clicked.emit()"
+  class="event-pointer text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded text-white">
+  <img
+    *ngIf="icon"
+    [src]="'./assets/images/icons/' + icon + '-icon' + '.svg'"
+    [alt]="title"
+    class="button-icon"
+  >{{title}}
+</span>

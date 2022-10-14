@@ -1,0 +1,12 @@
+<div
+  *ngIf="auth.isAuthenticated()"
+  class="fixed -right-10 top-1/2 -rotate-90"
+>
+  <app-icon-button
+    [routerLink]="['/admin', 'dashboard']"
+    color="green"
+    icon="home"
+    title="Admin panel"
+    class="buttons"
+  ></app-icon-button>
+</div>

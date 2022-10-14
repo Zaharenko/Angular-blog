@@ -12,6 +12,7 @@ import {AuthService} from "../shared/service/user.service";
 export class LoginPageComponent implements OnInit {
   public form: FormGroup;
   public user: User;
+
   constructor(
     public router: Router,
     public auth: AuthService

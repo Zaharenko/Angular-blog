@@ -12,7 +12,8 @@ import {UserGuard} from "./shared/service/user.guard";
 import {QuillModule} from "ngx-quill";
 import {SearchPipe} from "../pipe/search.pipe";
 import {LimitSymbols} from "../pipe/limit.pipe";
-import {SafeHtmlPipe} from "../pipe/safeHtml.pipe";
+import {ShareModule} from "../shared/share.module";
+import { EmailListComponent } from './email-list/email-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {SafeHtmlPipe} from "../pipe/safeHtml.pipe";
     EditPageComponent,
     SearchPipe,
     LimitSymbols,
-    SafeHtmlPipe
+    EmailListComponent
   ],
   imports: [
     CommonModule,
@@ -38,11 +39,13 @@ import {SafeHtmlPipe} from "../pipe/safeHtml.pipe";
           // todo: canActivate: [UserGuard]
           {path: 'dashboard', component: DashboardPageComponent},
           {path: 'create', component: CreatePageComponent},
+          {path: 'email-list', component: EmailListComponent},
           {path: 'post/:id/edit', component: EditPageComponent}
         ]
       }
     ]),
-    CoreModule
+    CoreModule,
+    ShareModule
   ],
   exports: [RouterModule,QuillModule],
   providers: [UserGuard]

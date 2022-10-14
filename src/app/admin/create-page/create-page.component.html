@@ -15,11 +15,19 @@
       <div>
         <label for="author" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Author</label>
         <input
-          type="author"
+          type="text"
           id="author"
           class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
           placeholder="Who created this post?"
           formControlName="author">
+        <select
+          id="users"
+          class="flex overflow-auto block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+          formControlName="authorIcon"
+          multiple>
+          <option [ngValue]="null" disabled>Choose user icon</option>
+          <option *ngFor="let user of users" [ngValue]="user.icon" id="`user ${user.id}`" [style.background-image]="'url('+user.icon+')'" class="inline-block bg-cover h-20 w-20 bg-no-repeat"></option>
+        </select>
       </div>
       <div>
         <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Category</label>
@@ -42,7 +50,7 @@
               <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
               <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
             </div>
-            <input id="dropzone-file" type="file" class="hidden" formControlName="banner"/>
+            <input id="dropzone-file" type="file" formControlName="banner" [ngClass]="users"/>
           </label>
         </div>
       </div>
@@ -56,7 +64,8 @@
         [disabled]="form.invalid"
         class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
       >
-        Create post</button>
+        Create post
+      </button>
     </form>
   </div>
 </section>

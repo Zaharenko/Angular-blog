@@ -1,0 +1,8 @@
+<button (click)="clicked.emit()">
+  <img
+    *ngIf="icon"
+    [src]="'./assets/images/icons/' + icon + '-icon' + '.svg'"
+    [alt]="title"
+    class="button-icon"
+  >{{title}}
+</button>

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {FbAuthResponse, User} from '../models/user.interface';
+import {FbAuthResponse} from '../models/user.interface';
 import {catchError, Observable, Subject, throwError} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {tap} from 'rxjs/operators';
@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   get token(): string {
-    const expDate = new Date(localStorage.getItem('fb-token=exp'))
+    const expDate = new Date(localStorage.getItem('fb-token-exp'))
     if(new Date() > expDate){
       this.logout();
       return null;

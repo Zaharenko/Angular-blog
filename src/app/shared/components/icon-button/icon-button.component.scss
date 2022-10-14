@@ -1,0 +1,46 @@
+:host{
+  display: inline-block;
+}
+
+:host.green{
+  background-color: var(--color-green);
+}
+
+:host.blue{
+  background-color: var(--color-blue);
+}
+
+:host.grey{
+  background-color: var(--bg-color);
+}
+
+:host.white{
+  background-color: var(--text-color);
+  button{
+    color: var(--color-blue);
+    border: 1px solid #ccc;
+  }
+}
+
+:host.filter-button{
+  &:hover{
+    background-color: var(--bg-color);
+  }
+  &:focus{
+    background-color: var(--bg-color);
+  }
+}
+
+button {
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.125rem;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .button-icon {
+    display: inline-block;
+    margin-right: 0.3rem;
+    width: 1.2rem;
+  }
+}

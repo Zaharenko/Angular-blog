@@ -16,6 +16,21 @@ export class CreatePageComponent implements OnInit {
     {name: 'News'}
   ];
 
+  users = [
+    {
+      icon: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png',
+      id: 1
+    },
+    {
+      icon: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png',
+      id: 2
+    },
+    {
+      icon: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png',
+      id: 3
+    },
+  ];
+
   constructor(
     public postService: PostService,
     public router: Router
@@ -32,6 +47,9 @@ export class CreatePageComponent implements OnInit {
       author: new FormControl('', [
         Validators.required
       ]),
+      authorIcon: new FormControl('', [
+        Validators.required
+      ]),
       banner: new FormControl('', [
         Validators.required
       ]),
@@ -45,6 +63,7 @@ export class CreatePageComponent implements OnInit {
     if (this.form.valid) {
       const post: Post = {
         author: this.form.value.author,
+        authorIcon: this.form.value.authorIcon,
         category: this.form.value.category,
         date: new Date(),
         banner: this.form.value.banner,

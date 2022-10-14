@@ -16,9 +16,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   public loading: boolean;
   public searchInput: '';
   public searchField: string;
-  public urlImages = 'D:\\Project\\Courses\\Course Angular Aliaksandr EPAM\\blog\\blog\\src\\assets\\post-banners';
-  public today: number;
-  public currentDate: Date
+  public urlImages = 'assets/post-banners';
+  dSub: Subscription;
 
   constructor(private postsService: PostService, private sanitizer: DomSanitizer) {
   }
@@ -27,17 +26,17 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.pSub = this.postsService.getAll().subscribe(posts => {
       this.posts = posts;
-      // this.today = Date.now() - +this.posts[1].date;
-      // this.currentDate = new Date(this.today)
-      // console.log(this.currentDate)
       this.loading = false;
     })
   }
 
   remove(id: string) {
-    this.postsService.remove(id).subscribe(
+    this.dSub = this.postsService.remove(id).subscribe(
       () => this.posts.filter(
-        post => post.id !== id
+        post => {
+          post.id !== id
+          this.ngOnInit()
+        }
       )
     )
   }
@@ -46,14 +45,13 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     if (this.pSub) {
       this.pSub.unsubscribe()
     }
+    if (this.dSub) {
+      this.dSub.unsubscribe()
+    }
   }
 
   public identify(index, item){
     return item.name;
-  }
-
-  public getSantizeUrl(url : string) {
-    return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
 }
