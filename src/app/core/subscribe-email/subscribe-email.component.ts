@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Email} from "../../admin/shared/models/post.interface";
+import {BannerService} from "../banner/services/banner.service";
 
 @Component({
   selector: 'app-subscribe-email',
@@ -13,8 +14,10 @@ export class SubscribeEmailComponent implements OnInit {
   status: boolean = false;
   public subscribeEmail: string;
   public subscribeEmailTime: string;
-  public timeEmail: Date;
-  constructor() { }
+  public statusBar: boolean;
+  constructor(
+    public bannerService: BannerService
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -27,9 +30,11 @@ export class SubscribeEmailComponent implements OnInit {
 
   submit() {
     if (this.form.invalid) {
+      this.bannerService.error('Message was not sent, there are errors')
       return
     }
 
+    this.bannerService.success('Message was sent')
     const email: Email = {
       email: this.form.value.email,
       time: new Date(),
@@ -40,12 +45,18 @@ export class SubscribeEmailComponent implements OnInit {
       localStorage.setItem(`subscribe-email`, `${email.email}`)
       this.subscribeEmail = localStorage.getItem(`subscribe-email`);
 
-      this.status = !this.status;
-      if(this.subscribeEmail === email.email){
-        this.status = true;
-        this.error = 'This email already exists'
-      }
+
+
 
   }
 
+  checkEmail() {
+    const email: Email = {
+      email: this.form.value.email,
+      time: new Date(),
+    }
+    if(this.subscribeEmail === email.email){
+      this.bannerService.warning('This email already exists')
+    }
+  }
 }

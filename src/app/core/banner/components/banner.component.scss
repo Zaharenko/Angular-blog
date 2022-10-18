@@ -1,0 +1,18 @@
+.hidden-banner{
+  display: none;
+}
+
+.hidden-banner.banner-success{
+  display: flex;
+  background: green;
+}
+
+.hidden-banner.banner-error{
+  display: flex;
+  background: red;
+}
+
+.hidden-banner.banner-warning{
+  display: flex;
+  background: yellow;
+}

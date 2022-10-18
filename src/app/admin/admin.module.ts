@@ -14,6 +14,7 @@ import {SearchPipe} from "../pipe/search.pipe";
 import {LimitSymbols} from "../pipe/limit.pipe";
 import {ShareModule} from "../shared/share.module";
 import { EmailListComponent } from './email-list/email-list.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -37,14 +38,15 @@ import { EmailListComponent } from './email-list/email-list.component';
           {path: '', redirectTo: '/admin', pathMatch: 'full'},
           {path: 'login', component: LoginPageComponent},
           // todo: canActivate: [UserGuard]
-          {path: 'dashboard', component: DashboardPageComponent},
-          {path: 'create', component: CreatePageComponent},
-          {path: 'email-list', component: EmailListComponent},
-          {path: 'post/:id/edit', component: EditPageComponent}
+          {path: 'dashboard', component: DashboardPageComponent, canActivate: [UserGuard]},
+          {path: 'create', component: CreatePageComponent, canActivate: [UserGuard]},
+          {path: 'email-list', component: EmailListComponent, canActivate: [UserGuard]},
+          {path: 'post/:id/edit', component: EditPageComponent, canActivate: [UserGuard]}
         ]
       }
     ]),
     CoreModule,
+    HttpClientModule,
     ShareModule
   ],
   exports: [RouterModule,QuillModule],

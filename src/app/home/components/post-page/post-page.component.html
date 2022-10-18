@@ -6,6 +6,7 @@
             <img class="rounded-lg h-96 w-screen object-cover" src="../../../assets/images/post-banners/{{post.banner | slice: -16}}" alt="office laptop working">
           </a>
           <div class="flex justify-between w-full mt-5">
+            <!-- // TODO: Create directive -->
               <app-categoty-icon
                 [routerLink]="['/post', post.id]"
                 style="{{

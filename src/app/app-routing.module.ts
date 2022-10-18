@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {MainLayoutComponent} from './shared/components/main-layout/main-layout.component';
-import {HomePageComponent} from './components/home-page/home-page.component';
-import {PostPageComponent} from './components/post-page/post-page.component';
+import {HomePageComponent} from './home/components/home-page/home-page.component';
+import {PostPageComponent} from './home/components/post-page/post-page.component';
 import {PostComponent} from "./shared/components/post/post.component";
 import {NotFoundComponent} from "./core/not-found/not-found.component";
 

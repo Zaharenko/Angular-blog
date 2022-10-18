@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {Post} from "../../admin/shared/models/post.interface";
-import {PostService} from "../../admin/shared/service/post.service";
+import {Post} from "../../../admin/shared/models/post.interface";
+import {PostService} from "../../../admin/shared/service/post.service";
 
 @Component({
   selector: 'app-home-page',

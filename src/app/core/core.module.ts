@@ -8,6 +8,9 @@ import {RelatedArticlesComponent} from './related-articles/related-articles.comp
 import {SubscribeEmailComponent} from './subscribe-email/subscribe-email.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {BannerComponent} from "./banner/components/banner.component";
+import {BannerService} from "./banner/services/banner.service";
+import {ColorDirective} from "./banner/derictives/color.directive";
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     MenuComponent,
     RelatedArticlesComponent,
     SubscribeEmailComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BannerComponent,
+    ColorDirective
   ],
   exports: [
     HeaderComponent,
@@ -25,6 +30,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     MenuComponent,
     RelatedArticlesComponent,
     SubscribeEmailComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +38,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     RouterLinkWithHref,
     RouterLink,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [BannerService]
 })
 export class CoreModule { }
